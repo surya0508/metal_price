@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<style>
+ body {
+        margin:0;
+        padding:0;
+        font-family: sans-serif;
+        background: linear-gradient( 	#800080, #33001a,#ff8080);
+    }
+    label,h5,h6{
+        color: white;
+    }   
+    </style>
+	
+  <div class= "ml-container">
+      <h1>Commodity Price Prediction</h1>
+      
+      
+      <form action="{{url_for('predict')}}"method="post">
+	  <center>
+			<h2>Commodity<h2>
+          <input type="text" name="commodity" placeholder="(0:copper,1:Gold,2:Silver)" required="required"/><br>
+		  <h2>S3<h2>
+		  <input type="text" name="S_3" placeholder="rolling3" required="required"/><br>
+		  <h2>S9<h2>
+		  <input type="text" name="S_9" placeholder="rolling9" required="required"/><br>
+		  <h2>Year<h2>
+          <input type="text" name="year" placeholder="year" required="required"/><br>
+		  <h2>Month(in number)<h2>
+          <input type="text" name="month" placeholder="month" required="required"/><br>
+		  <h2>Date<h2>
+		  <input type="text" name="day" placeholder="day" required="required"/><br><br>
+		  
+		   <input type="submit" value="predict">
+         
+          </center>
+      </form>
+      <br>
+      <br>
+      {{prediction_text}}
+  </div>
+  
+</body>
+</html>
